@@ -1,7 +1,7 @@
 import os
-import pydicom
+import pydicom as pd
 
-def sort(path):
+def load(path: str) -> list[list]:
     """
     Load, filter, group, and sort DICOM slices from path.
 
@@ -25,7 +25,7 @@ def sort(path):
     """
 
     # Get all slices
-    ds = [pydicom.dcmread(path + f) for f in os.listdir(path)]
+    ds = [pd.dcmread(path + f) for f in os.listdir(path)]
     
     # Remove "Scout"
     ds = [f for f in ds if f.SeriesDescription != "Scout"]
@@ -49,6 +49,7 @@ def sort(path):
             grouped.append(group)
             curr_series = f.SeriesNumber
             group = [f]
+    grouped.append(group)
 
     # Sort each series
     ds = []
