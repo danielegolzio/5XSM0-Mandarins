@@ -43,6 +43,10 @@ def volume(scan: list) -> float:
         # fill holes with erosion
         filled = reconstruction(seed, thresholded, method='erosion')
 
+        plt.title("Filled Slice")
+        plt.imshow(filled, cmap='gray')
+        plt.show()
+
         # volume calculation
         total_volume += np.sum(filled) * voxel_volume
 
