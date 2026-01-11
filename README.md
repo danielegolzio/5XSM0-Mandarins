@@ -1,7 +1,7 @@
 # Installation
 Clone repository
 ```
-git clone https://github.com/danielegolzio/5XSM0-Mandarins
+git clone https://github.com/danielegolzio/5XSM0-Mandarins.git
 cd 5XSM0-Mandarins
 ```
 Install packages
