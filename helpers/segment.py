@@ -12,8 +12,8 @@ from .view import view
 def segment_flood(image, tolerance):
     # image preprocessing
     image = (image - image.min()) / (image.max() - image.min())
-    image = gaussian(image, sigma=5)
     edges = sobel(image)
+    image = gaussian(image, sigma=5)
     image = image * (1 - edges)
 
     points = []
